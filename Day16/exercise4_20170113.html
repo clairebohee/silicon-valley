@@ -6,7 +6,23 @@
   </head>
 
   <body>
+    <p id = "show_button"> </p>
     <div id = "content"> "default message" </div>
+    <div id = "under_content"> </div>
+    <div class = "title"></div>
+     <!유저가 email과 password를 입력할만한 간단한 login form을 만들어주세요. 로그인 한 유저가 만든 post나 comment를 가지고 오세요.>
+    <br>
+    <!--<form>-->
+      Email:<br>
+      <input id = "email_input" type="text" name="email"><br>
+      Password:<br>
+      <input id = "password" type="text" name="password">
+      <br><br>
+      <button id = "submit"> Login </button> <br>
+    <!--</form>-->
+    <div id="written_by_email"> </div>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
     //
@@ -34,61 +50,87 @@
         //  }
         //  $.get('http://jsonplaceholder.typicode.com/posts/').done(place_post_on_page);
 
-         var i = 0;
+
+
+         var i = 1;
          var saved_data = [];
 
-         var place_post_on_page = function(data){
+         var place_post_on_page = function(data) {
 
-           saved_data = data;
+             saved_data = data;
 
+             // key property로 data object를 차례대로 검색
+             for (var key in saved_data) {
 
+                 //data의 object 순서대로 counter i로 id를 만들어 div 생성하고, title을 각각 넣음.
+                 $('<br> <div class= "collection_titles" id = ' + i + '> title: #' + i + ' ' + saved_data[key]["title"] + '</div>').appendTo('body');
+                 i++;
 
+             }
 
-           // key property로 data object를 차례대로 검색
-           for(var key in saved_data){
-
-
-             //data의 object 순서대로 counter i로 id를 만들어 div 생성하고, title을 각각 넣음.
-               $('<div id =' + i + '> title: ' + key + saved_data[key]["title"] + '<br>').appendTo('body');
-
-               //유저가 post title을 클릭 시
-               $('div#' + i).click(function(){
+             //유저가 post title을 클릭 시
+             $('div.collection_titles').click(function () {
+                 console.log(this.id);
                  //#content 섹션을 지우고
                  $('div#content').text("");
-                 $('<button id = "index"> Go to Index view </button>').appendTo('div#content');
+                 $('<button id = "index"> Go to Index view </button>').appendTo('p#show_button');
+
                  //클릭한 post의 모든 property들을 #content에 넣으세요.
-                 for(var count in saved_data[key]){
-                   $('div#content').append(' property: ' + count );
+                 for (var count in saved_data[key]) {
+                     $('div#content').append('property: ' + count + '<br>');
                  }
+                 var clicked_div_id = this.id;
+//                 console.log(clicked_div_id);
 
-                 var place_comment_on_page = function(data_comments){
-                   console.log(key);
-                   //postId property가 현재 “show” view에 있는 post의 id와 일치 한 것들만 post 아래에 넣으세요.
-                   for(var k in data_comments){
+                 var place_comment_on_page = function (data_comments) {
+                     //postId property가 현재 “show” view에 있는 post의 id와 일치 한 것들만 post 아래에 넣으세요.
+
+                     for (var k in data_comments) {
+
+                         if (data_comments[k]["postId"] == clicked_div_id) {
+                             //post를 만든 유저의 정보를 가지고 오세요. 그 유저의 이름과 email을 post 아래에 써주세요.
+                             $('div#under_content').append('<br> <b>body:</b> <br> ' + data_comments[k]["body"] + '<br> <b>name:</b> <br> ' + data_comments[key]["name"]
+                                 + '<br> <b>email:</b> <br> ' + data_comments[key]["email"] + '<br>');
+
+                         }
+                         //로그인 한 유저가 만든 post나 comment를 가지고 오세요.
+                         console.log("a");
+                         $('#submit').click(function(){
+                             var email_value = $('input#email_input').val();
+                             console.log(email_value);
+
+                             if (email_value == data_comments[k]["email"]){
+                                 $('#written_by_email').append(data_comments[key]["body"]);
+                             }
+
+                         })
 
 
-                     if(data_comments[k]["postId"] == saved_data[key]["id"]){
 
 
-                       $('comments'+ data_comments[k]["body"]).appendTo('div#content');
+
+
+
+
                      }
-                   }
                  }
+
                  //"show" view에서 하나의 post를 보여줄 시, /comments에서 모든 댓글을 가지고 오시고,
                  $.get('http://jsonplaceholder.typicode.com/comments/').done(place_comment_on_page);
 
-
-                 $('button#index').click(function(){
-                   $('div#content').text('"default text"');
+                 //“show” view에서 “index” view로 돌아갈 수 있도록 해주세요.
+                 $('button#index').click(function() {
+                     $('div#content').text('"default text"');
+                     $('button#index').hide();
+                     $('div#under_content').text("");
                  })
 
-               })
 
-              i++;
-              console.log(i);
-           }
+
+             });
+
+
          }
-
 
 
          $.get('http://jsonplaceholder.typicode.com/posts/').done(place_post_on_page);
