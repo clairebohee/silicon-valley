@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day11_function_exercise1 </title>
+  </head>
+  <body>
+    <div id = "output"> </div>
+    <script src = "http://code.jquery.com/jquery-2.1.1.js"></script>
+    <script>
+      var date = function (){
+        console.log("2016-01-01")
+      }
+
+      date()
+      date()
+
+      var word = function (){
+        return '열정적인'
+      }
+      $('div#output').append(word);
+
+      console.log(word())
+      console.log(word())
+      console.log(word())
+
+    </script>
+  </body>
+</html>

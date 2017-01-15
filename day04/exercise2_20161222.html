@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> Day04 exercise 2</title>
+    <style>
+      input{
+        padding: 6px 12px 6px 12px;
+        border: 1px solid #665544;
+        color: #ffffff;
+      }
+      input.submit:hover{
+        background-color: #665544;
+      }
+      input.submit:active{
+        background-color: chocolate;
+      }
+      input.text{
+        color: #cccccc;
+      }
+      input.text:focus{
+        color: #665544;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--
+    'action' attribute는 어느 서버에 데이터가 보내질지를 지정해줍니다
+    'method' attribute는 어떠한 HTTP method들인지 정해줍니다(GET이나 POST)
+    -->
+    <form action="form-responses/new" method="POST">
+      <label>First Name</label>
+      <br>
+      <input class="text" type="text" name="firstname" value="default" size="100" autofocus>
+      <br>
+      <br>
+      <label class="text" for="pswd">Password</label>
+      <br>
+      <input class="text" type="password" name="pswd">
+      <br>
+      <br>
+      <label for="userEmail">User Email</label>
+      <br>
+      <input class="text" type="email" name="userEmail" placeholder="hello@site.com">
+      <br><br>
+
+      <label for="weird"> 하나를 고르세요! </label>
+      <br>
+      <input class="text" type="radio" name="weird" value="code-blue" checked>
+      <span class="text">이것을 고르세요!</span>
+      <br>
+      <input class="text" type="radio" name="weird" value="code-red" checked>
+      <span>아니면 이것을 고르세요!</span>
+      <br><br>
+
+      <label for "optin"> 다음을 읽고 체크해 주세요! </label>
+      <br>
+      <input class="text" type="checkbox" name="optin" value="trusting" checked>
+      약관에 전부 동의합니다.
+      <br>
+      <input class="text" type="checkbox" name="optout" value="skeptical" disabled>
+      잠시만요. 이건 뭐죠?
+      <br><br>
+
+      <select name="car">
+        <optgroup label="스위스 자동차">
+          <option value="bording">Volvo</option>
+          <option value="cool">Honda</option>
+        </optgroup>
+      </select>
+      <br><br>
+
+      <textarea class="text" name="user_message" row="8" cols="40">
+      </textarea>
+      <br>
+
+      <input class="submit" type="submit">
+
+    </form>
+
+    <!--
+    아래는 네트워크 요청이 보낼 때 생성된 'POST' method의 body입니다.
+    firstname=user+numero+uno&pswd=secretstuff&userEmail=me%40site.com&weird=code-blue&optin=sucker&car=boring&userMessage=what+about++++spaces%3F%0D%0Aand%0D%0A+++indentation%3F
+    -->
+
+  </body>
+</html>

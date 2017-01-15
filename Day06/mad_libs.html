@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> Day06_exercise12 </title>
+  </head>
+  <body>
+    <span id="noun1"></span>
+    <span id="adjective1"></span>
+    <span id="verb1"></span>
+    <br>
+    <span id="noun2"></span>
+    <span id="adjective2"></span>
+    <span id="verb2"></span>
+
+    <script>
+      var a = "나는";
+      var b = "너를"
+      var c = "사랑해";
+      document.querySelector('#noun1').textContent = a;
+      document.querySelector('#adjective1').textContent = b;
+      document.querySelector('#verb1').textContent = c;
+      var d;
+      var e;
+      var f;
+      d=prompt("주어를 하나 입력주세요");
+      e=prompt("목적어를 하나 입력해주세요");
+      f=prompt("동사를 하나 입력해주세요");
+      document.querySelector('#noun2').textContent = d;
+      document.querySelector('#adjective2').textContent = e;
+      document.querySelector('#verb2').textContent = f;
+    </script>
+  </body>
+</html>

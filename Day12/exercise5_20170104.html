@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day12_exercise5 </title>
+    <style>
+      .highlighted{
+        color:white;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id = "output"> Start! </div>
+    <div id = "another"> Go back! </div>
+
+    <p id = "a"> Wonderful! </p>
+    <p id = "b"> Great! </p>
+    <p id = "c"> Amazing! </p>
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+    <script>
+      var el_finder = function(event){
+        console.log("calling el_finder for:", this, event)
+        $('div#output').attr('id', 'a');
+      }
+
+      $('p#a').on('click', el_finder)
+
+  //    $('div#output').on('click', function(){
+  //      $('div#output').addClass('highlighted')
+  //    })
+
+      $('div#output').on('click', function(){
+        $('div#output').css('color', 'white').css('background-color', 'green');
+      })
+
+//      $('div#another').on('click', function(){
+//        $('div#output').removeClass('highlighted')
+  //    })
+
+      $('div#another').on('click', function(){
+       $('div#output').css('color', '').css('background-color', '');
+      })
+
+
+    </script>
+
+  </body>
+
+</html>

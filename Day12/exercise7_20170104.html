@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day12_exercise7 </title>
+
+  </head>
+  <body>
+    <div id = "output"> </div>
+    <form>
+      <label for = "type">   </label>
+      <input type = "text1" id = "type">
+      <input type = "text2" id = "type2">
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+//      $('input#type').on('keypress', function (event) {
+//        $('label').text(event.keyCode)
+//      })
+
+  //    $('body').on('keypress', function(event){
+  //      var a = String.fromCharCode(event.keyCode)
+  //      $('<p>' + a + '</p>').appendTo('body');
+  //    })
+
+  //    $('body').on('keypress', function(event){
+  //      var nsa_surveillance  = String.fromCharCode(event.keyCode)
+  //      $('div#output').append(nsa_surveillance);
+  //    })
+
+      $('input').on('focus',function(){
+        $('input').css('background-color', 'green');
+      });
+
+      $('input').blur(function(){
+        $('input').css('background-color', 'yellowgreen');
+      });
+
+    </script>
+  </body>
+</html>

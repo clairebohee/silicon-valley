@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day14_exercise10 </title>
+  </head>
+
+  <body>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src = "exercise10_20170108.js"></script>
+    <script>
+
+      for (var key in them_dogs){
+        for(var i in them_dogs[key]){
+          if(i === "name"){
+            console.log (them_dogs[key][i]);
+          }
+        }
+      }
+
+      var a = 0;
+
+      var all_toys = [];
+      for (var key in them_dogs){
+        for (var i in them_dogs[key]){
+          if (i === "toys"){
+            all_toys[a] = them_dogs[key][i];
+            a++;
+          }
+        }
+      }
+
+      for (var key in all_toys){
+        for (var i in all_toys[key]){
+          console.log (all_toys[key][i]);
+        }
+      }
+
+      var dog_info = function(array, toy){
+        for (var key in array){
+          for (var i in array[key]["toys"]){
+            if (array[key]["toys"][i] === toy){
+              return array[key]["name"];
+            }
+          }
+        }
+      }
+
+      console.log(dog_info(them_dogs, "kong"));
+
+      console.log(them_dogs[0]["picture"]);
+
+      for (var key in them_dogs){
+        $('<img src =' + them_dogs[key]["picture"] + '> <p>' + them_dogs[key]["name"] + '</p>').appendTo('body');
+      }
+
+    </script>
+  </body>
+</html>

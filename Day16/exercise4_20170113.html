@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day16_exercise4 </title>
+  </head>
+
+  <body>
+    <div id = "content"> "default message" </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      // var root = 'http://jsonplaceholder.typicode.com';
+      //  $.ajax({
+      //    method: 'GET',
+      //    url: 'http://jsonplaceholder.typicode.com/posts/',
+      //    success: function(data){
+      //      console.log(data);
+      //      for(var key in data){
+      //        if (data[key]["id"] === 2){
+      //          console.log(data[key]["body"]);
+      //        }
+      //      }
+       //
+      //    }
+      //   })
+
+        //  var place_post_on_page = function(data){
+        //    for(var key in data){
+        //      if(data[key]["id"]<=10){
+        //        console.log(data[key]["title"]);
+        //      }
+        //    }
+        //  }
+        //  $.get('http://jsonplaceholder.typicode.com/posts/').done(place_post_on_page);
+
+         var i = 0;
+         var saved_data = [];
+
+         var place_post_on_page = function(data){
+
+           saved_data = data;
+
+
+
+
+           // key property로 data object를 차례대로 검색
+           for(var key in saved_data){
+
+
+             //data의 object 순서대로 counter i로 id를 만들어 div 생성하고, title을 각각 넣음.
+               $('<div id =' + i + '> title: ' + key + saved_data[key]["title"] + '<br>').appendTo('body');
+
+               //유저가 post title을 클릭 시
+               $('div#' + i).click(function(){
+                 //#content 섹션을 지우고
+                 $('div#content').text("");
+                 $('<button id = "index"> Go to Index view </button>').appendTo('div#content');
+                 //클릭한 post의 모든 property들을 #content에 넣으세요.
+                 for(var count in saved_data[key]){
+                   $('div#content').append(' property: ' + count );
+                 }
+
+                 var place_comment_on_page = function(data_comments){
+                   console.log(key);
+                   //postId property가 현재 “show” view에 있는 post의 id와 일치 한 것들만 post 아래에 넣으세요.
+                   for(var k in data_comments){
+
+
+                     if(data_comments[k]["postId"] == saved_data[key]["id"]){
+
+
+                       $('comments'+ data_comments[k]["body"]).appendTo('div#content');
+                     }
+                   }
+                 }
+                 //"show" view에서 하나의 post를 보여줄 시, /comments에서 모든 댓글을 가지고 오시고,
+                 $.get('http://jsonplaceholder.typicode.com/comments/').done(place_comment_on_page);
+
+
+                 $('button#index').click(function(){
+                   $('div#content').text('"default text"');
+                 })
+
+               })
+
+              i++;
+              console.log(i);
+           }
+         }
+
+
+
+         $.get('http://jsonplaceholder.typicode.com/posts/').done(place_post_on_page);
+
+    </script>
+  </body>
+</html>

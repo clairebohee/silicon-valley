@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day11_function_exercise5 </title>
+    <style>
+      #noun{
+        background-color:#CD5C5C;
+      }
+      #adjective{
+        background-color:#F08080;
+      }
+      #verb{
+        background-color:#FA8072;
+      }
+      #adverb{
+        background-color:#FFA07A;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="output"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    var string_printer = function(input){
+      $('#output').text(input);
+    }
+    var funny_sentence = function(noun, adjective, verb, adverb){
+      $('<span id = "noun">' + noun + '</span>').appendTo("div#output");
+      $('<span id = "adjective">' + adjective + '</span>').appendTo("div#output");
+      $('<span id = "verb">' + verb + '</span>').appendTo("div#output");
+      $('<span id = "adverb">' + adverb + '</span>').appendTo("div#output");
+      $('#output').append(noun + " " + adjective + ". 그리고 "
+      + noun + " " + adverb + " " + verb + ".");
+    }
+    funny_sentence("나는", "예쁘다", "요가하고싶다", "곧");
+    funny_sentence("너는", "예쁘다", "요가하고싶지?", "곧");
+    funny_sentence("너도", "예쁘다", "요가하고싶니?", "지금");
+    funny_sentence("당신도", "예쁘다", "요가하자", "곧");
+    funny_sentence("너희들도", "예쁘다", "요가하러 갈래?", "지금");
+
+    </script>
+  </body>
+</html>

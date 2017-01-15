@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset = "utf-8">
+    <title> Day11_function_exercise3 </title>
+  </head>
+
+  <body>
+    <script>
+    var log_and_return = function(){
+       console.log(arguments);
+       return arguments;
+    }
+    var returned_values = log_and_return("hello", 3+7);
+    var re = log_and_return(returned_values,1, 4+5);
+    var ree = log_and_return(re);
+
+    </script>
+  </body>
+</html>

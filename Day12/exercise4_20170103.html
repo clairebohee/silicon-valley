@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day12_exercise4 </title>
+    <style>
+      body, html {
+        height: 100%;
+        cursor: none;
+      }
+      #cute{
+        position:fixed;
+        width: 10%;
+        height: 10%;
+
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <image id = "cute" src = "image/puppy.jpg"></image>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+
+    <script>
+      var mouse_tracker = function(event){
+        console.log(event.pageX, event.pageY, !!event.which)
+        $('#cute').css('left', event.pageX).css('top', event.pageY);
+      }
+
+      $('body').on('mousemove', mouse_tracker)
+    </script>
+
+  </body>
+</html>

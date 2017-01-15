@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day11_function_exercise7 </title>
+  </head>
+
+  <body>
+    <div id = "output"> </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+
+      var string1 = "fizz";
+      var string2 = "buzz";
+      var counter = 1;
+      var result = "";
+      var this_that = function(input1, input2, fizz_num, buzz_num, count_up_to){
+        while (counter <= count_up_to){
+          if (counter % 3 === 0 ){
+            console.log(input1);
+            result = result + input1 + ",";
+            $('#output').append(result);
+          }
+          else if (counter % 5 === 0){
+            console.log(input2);
+            result = result + input2 + ",";
+            $('#output').append(result);
+          }
+          else if (counter % 15 === 0){
+            console.log(input1 + input2);
+            result = result + input1 + input2 + ",";
+            $('#output').append(result);
+          }
+          else if (counter % 2 === 0){
+            console.log(fizz_num);
+            result = result + fizz_num + ",";
+            $('#output').append(result);
+          }
+          else if (counter % 7 === 0){
+            console.log(buzz_num);
+            result = result + buzz_num + ",";
+            $('#output').append(result);
+          }
+          else {
+            console.log(counter);
+            result = result + counter + ",";
+            $('#output').append(result);
+          }
+          counter++;
+        }
+        return result;
+      }
+
+    </script>
+  </body>
+</html>

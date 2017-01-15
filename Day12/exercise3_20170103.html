@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day12_exercise3 </title>
+    <style>
+      .highlighted{
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id = "target"> Wonderful! </div>
+    <div id = "magic"> Hide image! </div>
+    <image id = "im" src = "image/Margaret_Hamilton.gif"></image>
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+    <script>
+    $('#target').on('mouseover', function(){
+      $('#target').addClass('highlighted')
+    })
+    $('#target').on('mouseleave', function(){
+      $('#target').removeClass('highlighted')
+    })
+
+    $('#magic').on('mouseover', function(){
+      $('#im').hide();
+    })
+    $('#magic').on('mouseleave', function(){
+      $('#im').show();
+    })
+
+    </script>
+  </body>
+</html>

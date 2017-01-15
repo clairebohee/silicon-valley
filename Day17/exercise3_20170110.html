@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day17_exercise3 </title>
+  </head>
+  <body>
+    <div id = "show"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      var secret_keeper = function(input1, input2){
+        var secret = "I'm Claire.";
+        $('div#show').append(input1 + secret + input2);
+      }
+      secret_keeper("hi ", " nice to meet you!")
+    </script>
+  </body>
+</html>

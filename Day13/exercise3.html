@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day13_exercise3 </title>
+  </head>
+
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      var recipe = [];
+      recipe[0] = "Buy raw salmon"
+      recipe[1] = "Slice the salmon"
+      recipe[2] = "Slice onion"
+      recipe[3] = "Cut seaweed-paper into small pieces"
+      recipe[4] = "Mix all of the ingredients with hot rice"
+      recipe[5] = "Add one spoon of sesame oil"
+
+      var bucket_list = [];
+      bucket_list[0] = "love"
+      bucket_list[1] = "happy"
+      bucket_list.push("enjoy")
+      bucket_list.push("relax")
+      bucket_list.unshift("like")
+      bucket_list.unshift("achieve")
+      var dying_wish = bucket_list.pop();
+      var do_it_now = bucket_list.shift();
+
+      var append_strings = function(array){
+        var i = 0;
+        while (i < array.length){
+          $('<p>'+ array[i] + '</p>').appendTo('body');
+          i++;
+        }
+      }
+
+      append_strings(recipe);
+      append_strings(bucket_list);
+
+
+    </script>
+  </body>
+</html>

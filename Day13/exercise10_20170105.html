@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <style>
+    div#container{
+      position: relative;
+      width:50%;
+    }
+
+    img{
+    display: block;
+    width:100%;
+    height:auto;
+    }
+
+    div#b{
+      position:absolute;
+      top:50%;
+      left:50%;
+    }
+
+    </style>
+  </head>
+
+  <body>
+    <form>
+      <label> input some text! </label>
+      <input id = "c" type = "text"></br>
+    </form>
+    <button id = "ask"> "ask question!" </button>
+    <button id = "ask_again"> "ask again"></button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    var words = ['Happy!', 'Enjoy!', 'I love you!', 'Run!', 'Fire!'];
+    var words_copy = ['Happy!', 'Enjoy!', 'I love you!', 'Run!', 'Fire!'];
+
+
+    $('button#ask').on('click', function(){
+      var inputText = $('input').val();
+      if(inputText){
+
+        if (words_copy.length === 0){
+          var another = Math.floor( Math.random() * words.length );
+          $('<div id = "container"> <img src = "image/star circle.png"> <div id="b">' + words[another] + '</div> </img></div>').appendTo('body');
+        }
+        else {
+          var rand = Math.floor( Math.random() * words_copy.length )
+          console.log(rand);
+          $('<div id = "container"> <img src = "image/star circle.png"> <div id="b">' + words_copy[rand] + '</div> </img></div>').appendTo('body');
+          var removed = words_copy.splice(rand,1);
+          console.log(words_copy.length);
+          console.log(removed);
+
+        }
+      } else {
+        console.log('there is no inputText!');
+      }
+    })
+
+
+    $('button#ask_again').on('click', function(){
+      $('img').hide();
+      $('div#b').hide();
+      $('input#c').value = "";
+    })
+
+    </script>
+  </body>
+</html>

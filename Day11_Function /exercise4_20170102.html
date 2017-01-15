@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <mega charset = "utf-8">
+    <title> Day11_function_exercise 4 </title>
+  </head>
+  <body>
+    <script>
+    var triple = function(num){
+      return num * 3 ;
+    }
+  //  console.log(triple());
+
+    var multiply = function(num1, num2){
+      return num1 * num2;
+    }
+  //  var input1 = prompt("0보다 큰 정수를 입력하세요");
+  //  var input2 = prompt("0보다 큰 정수를 입력하세요");
+
+  //  console.log(multiply(input1, input2));
+
+    var divide = function(num1, num2){
+      return num1/num2;
+    }
+
+    var remainder = function(num1, num2){
+      return num1 % num2;
+    }
+  //  var input3 = prompt("0보다 큰 정수를 입력하세요");
+  //  var input4 = prompt("0보다 큰 정수를 입력하세요");
+  //  console.log(remainder(input3, input4));
+
+  //  console.log(remainder(divide(multiply(triple(5),12),2),3));
+
+    var entire = function(num1, num2, num3, num4){
+      return remainder(divide(multiply(triple(num1),num2),num3),num4);
+    }
+    console.log(entire(5,12,2,3));
+
+    </script>
+  </body>
+</html>

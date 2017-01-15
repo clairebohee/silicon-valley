@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      var myProfile = {
+              "firstName": "Eleanor",
+              "lastName": "Abernathy",
+              "cats": ["Tribbles", "Buster"]
+      };
+
+      var p = document.createElement('p');
+      p.innerHTML = 'My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ';
+      p.innerHTML += 'My cats are ' + myProfile.cats.join(', ') + '.';
+      document.body.appendChild(p);
+      // or
+//      var p = $('<p>');
+//      p.html('My name is ' + myProfile.firstName + ' ' + myProfile.lastName + '. ');
+//      p.html(p.html() + 'My cats are ' + myProfile.cats.join(', ') + '.');
+//      p.appendTo('body');
+    </script>
+  </body>
+
+
+
+</html>

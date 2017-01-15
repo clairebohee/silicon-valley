@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day14_exercise9 </title>
+  </head>
+
+  <body>
+    <div id = "primative_data_types"> </div>
+    <div id = "array_values"> </div>
+    <div id = "uncle">  </div>
+    <script src = "exercise9_20170108.js"> </script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+
+      $('div#primative_data_types').append(complex_object.string , complex_object.number);
+
+      for (var key in complex_object.array){
+        if (typeof complex_object.array[key] === "object"){
+          $('div#array_values').append(complex_object.array[key] + '<br>');
+        }
+        else if (typeof complex_object.array[key] === "function"){
+          $('div#array_values').append(complex_object.array[key] + '<br>');
+        }
+        else {
+          $('div#array_values').append(complex_object.array[key] + '<br>');
+        }
+      }
+
+
+      for (var key in complex_object.simple_object){
+        $('div#uncle').append(complex_object.simple_object[key] + '<br>');
+      }
+
+
+      complex_object.array[5]();
+
+    </script>
+  </body>
+</html>

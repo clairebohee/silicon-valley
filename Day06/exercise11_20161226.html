@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> Day06_exercise11 </title>
+  </head>
+
+  <body>
+    <div id="source"> test1 </div>
+    <div id="destination"> test2 </div>
+
+    <script>
+    var a = document.querySelector('#source').textContent;
+    var b = document.querySelector('#destination').textContent;
+    document.querySelector('#source').textContent = b;
+    document.querySelector('#destination').textContent = a;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <mega charset = "utf-8">
+    <title> Day13_exercise3 </title>
+  </head>
+  <body>
+    <a href = "http://openweathermap.org/city/1835848"> Seoul </a>
+    <br>
+    <button id = "delete"> Delete </button>
+    <button id = "get_data"> Get data </button>
+    <button id = "show"> Show </button>
+    <div id = "container1"> </div>
+    <div id = "container2"> </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+
+      $.ajax({
+        method: 'GET',
+        url: 'http://api.openweathermap.org/data/2.5/weather?q=San%20Francisco&mode=json&units=imperial&APPID=50209915e0bb37dacb88e9ee4f70d10b',
+        success: function(weather_data){
+          $('#container1').append("오늘의 기온은 "+ weather_data.main.temp + '<br>');
+          $('#container1').append("오늘의 최고 온도는 " + weather_data.main.temp_max + '<br>' + "오늘의 최저 온도는 " + weather_data.main.temp_min + '<br>');
+          $('#container1').append("현재 날씨 정보는 " + weather_data.weather[0].description + '<br>');
+          $('#container1').append("바람 속도는 " + weather_data.wind.speed + '<br>');
+          $('#container1').append("해돋이와 일몰시간은 " + new Date(weather_data.sys.sunrise * 1000) + '<br>');
+        }
+      });
+
+      $('a').on('click', function( event ) {
+        event.preventDefault();
+        // your code here
+      });
+        //  링크/버튼 클릭 시 #container안의 내용들을 전부 지워주세요.
+      $('#delete').on('click', function( event ) {
+        $('#container1').hide();
+      });
+
+        // 링크/버튼 클릭 시 유저에게 요청하신 데이터를 서버에서 가지고 오는 중이라고 알려주세요.
+      $('#get_data').on('click', function( event ) {
+        alert("요청하신 데이터를 서버에서 가지고 오는 중입니다.");
+      });
+
+        // 링크/버튼 클릭 시 데이터가 날씨 서버에서부터 response로 돌아오면 페이지에 보여주세요.
+      $('#show').on('click', function( event ) {
+        $.ajax({
+          method: 'GET',
+          url: 'http://api.openweathermap.org/data/2.5/weather?q=Seoul&mode=json&units=imperial&APPID=50209915e0bb37dacb88e9ee4f70d10b',
+          success: function(weather_data){
+            $('#container2').append("오늘의 기온은 "+ weather_data.main.temp + '<br>');
+            $('#container2').append("오늘의 최고 온도는 " + weather_data.main.temp_max + '<br>' + "오늘의 최저 온도는 " + weather_data.main.temp_min + '<br>');
+            $('#container2').append("현재 날씨 정보는 " + weather_data.weather[0].description + '<br>');
+            $('#container2').append("바람 속도는 " + weather_data.wind.speed + '<br>');
+            $('#container2').append("해돋이와 일몰시간은 " + new Date(weather_data.sys.sunrise * 1000) + '<br>');
+          }
+        });
+      });
+      console.log(encodeURI('Seoul'));
+
+    </script>
+  </body>
+</html>

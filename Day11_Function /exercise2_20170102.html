@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day11_function_exercise2 </title>
+  </head>
+
+  <body>
+    <div class = "new">
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+      var get_sentence = function(){
+        var firstSentence = 'What can I do for you?';
+        var secondSentence = 'Welcome!';
+        var thirdSentence = 'Good Day!';
+
+        var randomNumber = Math.floor((Math.random() * 10));
+
+        if ((randomNumber % 3) === 0 ){
+          return firstSentence;
+        }
+        else if ((randomNumber % 3) === 1){
+          return secondSentence;
+        }
+        else if ((randomNumber % 3) === 2){
+          return thirdSentence;
+        }
+      }
+
+  //    var new_sentence = get_sentence();
+//      console.log(new_sentence);
+
+    //  $('#new').append(new_sentence);
+      var counter = 1;
+      while (counter <= 10){
+      $("<p>" + get_sentence() + "</p>").appendTo("div.new");
+      counter++;
+      }
+    </script>
+
+  </body>
+</html>

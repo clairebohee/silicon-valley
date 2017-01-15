@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day17_exercise1 </title>
+  </head>
+  <body>
+    <div id = "answer"> </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      // var callback = function(){
+      //   return "hi";
+      // }
+
+      var answer_logger = function(fn ){
+        $('div#answer').text(fn());
+      }
+
+      answer_logger(function(){
+        return "이 string이 div#answer안에 들어가 있어야 합니다"
+      })
+
+    </script>
+  </body>
+</html>

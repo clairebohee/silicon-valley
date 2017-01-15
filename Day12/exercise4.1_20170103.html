@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day12_exercise4.1 </title>
+  </head>
+
+  <body>
+    <div> Wonderful! </div>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+    <script>
+      var el_finder = function(event){
+        console.log("calling el_finder for:", this, event.target)
+        $(this).attr('id', 'active');
+      }
+
+      $('div').on('click', el_finder)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day12_exercise2.1 </title>
+    <style>
+      #im {
+        display:none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id = "target"> </div>
+    <image src = "image/oprah.jpg" id = "im"></image>
+
+
+    <button type = "button" > Show Me The Oprah </button>
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"> </script>
+    <script>
+    $('button').on('click', function()
+      {
+      $('#im').show();
+      }
+    )
+    </script>
+  </body>
+</html>

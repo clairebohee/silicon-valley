@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day09_exercise7 </title>
+
+
+  </head>
+
+  <body>
+
+    <img id = "first" src = "image/cat_right.jpeg"></img>
+    <img id = "second" src = "image/funny image.jpeg"></img>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script src ="exercise7_20161230.js"></script>
+    <script>
+       var a = $('<div class="container">Got a new div coming in here!</div>');
+       $('body').append(a);
+
+       $('img#first').css('height','30%');
+       $('img#first').css('width','30%');
+
+//     $('img#first').fadeOut(2000).delay(1000).fadeIn().slideUp(4000)
+  //   $('img#second').fadeIn(2000);
+
+       var b = Math.floor(Math.random() * 500)
+       $('body').append(b);
+
+       $('img#first').css('position','fixed');
+       $('img#first').css('left', b);
+
+       var c = Math.floor(Math.random() * 500)
+       $('body').append(c);
+       $('img#second').css('position','fixed');
+       $('img#second').css('right',c);
+
+    </script>
+
+  </body>
+</html>

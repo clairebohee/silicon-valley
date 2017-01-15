@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <meta charset = "utf-8">
+    <title> Day16_exercise4 </title>
+  </head>
+
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      var root = 'http://jsonplaceholder.typicode.com';
+
+      $.ajax({
+        url: root + '/posts/1',
+        method: 'GET'
+      }).then(function(data) {
+        console.log(data);
+      });
+    </script>
+  </body>
+</html>
